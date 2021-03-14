@@ -21,12 +21,41 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var questions = [
+      'What\'s your favourite color?',
+      'What\'s your favourite animal?'
+    ];
     return Scaffold(
       appBar: AppBar(
         title: Text('My First App'),
         backgroundColor: Colors.indigo.shade800,
       ),
-      body: Text('This is my defaul text'),
+      body: Column(
+        children: [
+          Text('The Question!'),
+          ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                primary: Colors.blue,
+                onPrimary: Colors.white,
+              ),
+              onPressed: null,
+              child: Text('Answer 1')),
+          ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                primary: Colors.blue,
+                onPrimary: Colors.white,
+              ),
+              onPressed: null,
+              child: Text('Answer 2')),
+          ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                primary: Colors.blue,
+                onPrimary: Colors.white,
+              ),
+              onPressed: null,
+              child: Text('Answer 3')),
+        ],
+      ),
     );
   }
 }
