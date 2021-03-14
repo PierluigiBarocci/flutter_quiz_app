@@ -14,17 +14,30 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class Home extends StatelessWidget {
+class Home extends StatefulWidget {
   const Home({
     Key key,
   }) : super(key: key);
 
   @override
+  _HomeState createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
+  var questionIndex = 0;
+  void answerQuestion() {
+    setState(() {
+      questionIndex = questionIndex + 1;
+    });
+  }
+
+  var questions = [
+    'What\'s your favourite color?',
+    'What\'s your favourite animal?'
+  ];
+
+  @override
   Widget build(BuildContext context) {
-    var questions = [
-      'What\'s your favourite color?',
-      'What\'s your favourite animal?'
-    ];
     return Scaffold(
       appBar: AppBar(
         title: Text('My First App'),
@@ -32,27 +45,27 @@ class Home extends StatelessWidget {
       ),
       body: Column(
         children: [
-          Text('The Question!'),
+          Text(questions[questionIndex]),
           ElevatedButton(
               style: ElevatedButton.styleFrom(
-                primary: Colors.blue,
+                primary: Colors.indigo,
                 onPrimary: Colors.white,
               ),
-              onPressed: null,
+              onPressed: answerQuestion,
               child: Text('Answer 1')),
           ElevatedButton(
               style: ElevatedButton.styleFrom(
-                primary: Colors.blue,
+                primary: Colors.indigo,
                 onPrimary: Colors.white,
               ),
-              onPressed: null,
+              onPressed: answerQuestion,
               child: Text('Answer 2')),
           ElevatedButton(
               style: ElevatedButton.styleFrom(
-                primary: Colors.blue,
+                primary: Colors.indigo,
                 onPrimary: Colors.white,
               ),
-              onPressed: null,
+              onPressed: answerQuestion,
               child: Text('Answer 3')),
         ],
       ),
