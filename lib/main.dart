@@ -42,7 +42,7 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('My First App'),
+        title: Text('My First Basic App'),
         backgroundColor: Colors.indigo.shade800,
       ),
       body: Column(
