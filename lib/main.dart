@@ -24,10 +24,10 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  var questionIndex = 0;
+  var _questionIndex = 0;
   void answerQuestion() {
     setState(() {
-      questionIndex = questionIndex + 1;
+      _questionIndex++;
     });
   }
 
@@ -45,7 +45,7 @@ class _HomeState extends State<Home> {
       ),
       body: Column(
         children: [
-          Text(questions[questionIndex]),
+          Text(questions[_questionIndex]),
           ElevatedButton(
               style: ElevatedButton.styleFrom(
                 primary: Colors.indigo,
