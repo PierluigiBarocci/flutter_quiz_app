@@ -29,25 +29,42 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   // Variables, Constants and States
   var _questionIndex = 0;
+  var _totalScore = 0;
   static const _questions = [
     {
       'questionText': 'What\'s your favourite color?',
-      'answers': ['Black', 'Red', 'Green', 'White'],
+      'answers': [
+        {'text': 'Black', 'score': 10},
+        {'text': 'Red', 'score': 5},
+        {'text': 'Green', 'score': 3},
+        {'text': 'White', 'score': 1},
+      ],
     },
     {
       'questionText': 'What\'s your favourite animal?',
-      'answers': ['Rabbit', 'Snake', 'Elephant', 'Lion'],
+      'answers': [
+        {'text': 'Rabbit', 'score': 10},
+        {'text': 'Snake', 'score': 5},
+        {'text': 'Elephant', 'score': 3},
+        {'text': 'Dog', 'score': 1},
+      ],
     },
     {
       'questionText': 'Who\'s is your favourite instructor?',
-      'answers': ['Max', 'Max', 'Max', 'Max'],
+      'answers': [
+        {'text': 'Max', 'score': 10},
+        {'text': 'John', 'score': 5},
+        {'text': 'Kevin', 'score': 3},
+        {'text': 'Edward', 'score': 1},
+      ],
     },
   ];
 
   // Functions
-  void _answerQuestion() {
+  void _answerQuestion(int score) {
     setState(() {
       _questionIndex++;
+      _totalScore += score;
     });
   }
 
@@ -64,7 +81,7 @@ class _HomeState extends State<Home> {
               questions: _questions,
               questionIndex: _questionIndex,
             )
-          : Result(),
+          : Result(_totalScore),
     );
   }
 }
