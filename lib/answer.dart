@@ -3,9 +3,10 @@ import 'package:flutter/material.dart';
 class Answer extends StatelessWidget {
   // it expect a Function, so I have to type this
   final Function selectHandler;
+  final String answerText;
 
   // then I costruct the class property
-  Answer(this.selectHandler);
+  Answer(this.selectHandler, this.answerText);
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +18,7 @@ class Answer extends StatelessWidget {
             onPrimary: Colors.white,
           ),
           onPressed: selectHandler,
-          child: Text('Answer 1')),
+          child: Text(answerText)),
     );
   }
 }
